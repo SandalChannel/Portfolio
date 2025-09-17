@@ -40,7 +40,7 @@
             filter: blur(8px) brightness(0.4);
             transition: all 0.2s ease;
             z-index: -1;
-            background: transparent;
+            background: black;
         }
 
         .video-background video {
@@ -291,6 +291,11 @@
             font-size: 0.9rem;
         }
 
+        video {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -326,9 +331,9 @@
         <div class="carousel-container">
             <div class="carousel-wrapper">
                 <div class="carousel" id="carousel">
-                    <div class="carousel-item active" data-project="0" data-image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815" style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815')">
+                    <div class="carousel-item active" data-project="0" style="background-image: url('https://sandalchannel.github.io/Portfolio/Resources/ProfilePhoto.png')">
                     </div>
-                    <div class="carousel-item" data-project="1" data-image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815" style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815')">
+                    <div class="carousel-item" data-project="1" style="background-image: url('https://sandalchannel.github.io/Portfolio/Resources/logoSouperBloody.png')">
                     </div>
                     <div class="carousel-item" data-project="2" data-image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815" style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815')">
                     </div>
@@ -412,8 +417,10 @@
 
                 <div class="project-video">
                     <div class="video-card">
-                         <iframe width="100%" height="100%" 
-                         src="https://www.youtube-nocookie.com/embed/QKykCi_r1Po?si=7f3hJF5GgjaqmfH5&amp;controls=0&amp;start=54" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                         <video width="100%" height="100%" 
+                         src="https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyExampleVideo.mp4"
+                         autoplay="true">
+                        </video>
                     </div>
                 </div>
                 
@@ -631,7 +638,7 @@
         // Video backgrounds for each project
         const videoBackgrounds = [
             'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-            'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            'https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyExampleVideo.mp4',
             'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
             'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
             'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
@@ -665,10 +672,6 @@
                 }
                 
                 item.style.opacity = opacity;
-            });
-            
-            navDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
             });
             
             // Update project content

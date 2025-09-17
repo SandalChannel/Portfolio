@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Design Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            color: white;
+            overflow-x: hidden;
+            background: #1a1a2e;
+        }
+
+        .hero-section {
+            height: 92vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: blur(8px) brightness(0.4);
+            transition: all 0.2s ease;
+            z-index: -1;
+            background: transparent;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(2px);
+            z-index: 0;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .carousel-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            padding: 50px 0;
+        }
+
+
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 20px;
+            padding: 20px 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-item {
+            flex-shrink: 0;
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            border: 3px solid transparent;
+            overflow: hidden;
+            transform: scale(0.8);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-item.active {
+            border-color: #ffffff;
+            transform: scale(1.1);
+            
+            z-index: 2;
+        }
+
+        .carousel-item:hover {
+            transition: all 0.2s ease;
+            transform: scale(0.85);
+        }
+
+        .carousel-item.active:hover {
+            transition: all 0.2s ease;
+            transform: scale(1.15);
+        }
+        .carousel-item.round {
+            border-radius: 999px;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .project-details {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .carousel-item {
+                width: 150px;
+                height: 120px;
+            }
+            
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .preview-title {
+                font-size: 1.5rem;
+            }
+            
+            .carousel {
+                gap: 20px;
+            }
+        }
+
+        .content-section {
+            min-height: 100vh;
+            padding: 40px 20px 80px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            position: relative;
+            margin-top: -100px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .project-content.active {
+            display: block;
+        }
+
+        .project-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            border: 2px solid #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .project-video {
+            display: grid;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            aspect-ratio: 16 / 9;
+        }
+
+        .detail-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .detail-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .detail-text {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+                .project-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="video-background" id="videoBg">
+            <video autoplay muted loop id="bgVideo">
+                <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <div class="carousel" id="carousel">
+                    <div class="carousel-item active" data-project="0" data-image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815" style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815')">
+                    </div>
+                    <div class="carousel-item" data-project="1" data-image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815" style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815')">
+                    </div>
+                    <div class="carousel-item" data-project="2" data-image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815" style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815')">
+                    </div>
+                    <div class="carousel-item" data-project="3" data-image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815" style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815')">
+                    </div>
+                    <div class="carousel-item" data-project="4" data-image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815" style="background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Foctodad.com%2Ffiles%2Fog_image.jpg&f=1&nofb=1&ipt=0cbe7a593ba73deb3e5e8de6852d081896d3ccbdc7f47e33eece71d2fb591815')">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="content-container">
+            <!-- Project 0: Mystic Quest RPG -->
+            <div class="project-content active" id="project-0">
+                <div class="project-header">
+                    <h2 class="project-title">Mystic Quest RPG</h2>
+                    <p class="project-subtitle">An epic fantasy adventure with branching storylines</p>
+                    <div class="project-tags">
+                        <span class="tag">RPG</span>
+                        <span class="tag">Fantasy</span>
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Multiplayer</span>
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-card">
+                        <h3 class="detail-title">Game Overview</h3>
+                        <p class="detail-text">
+                            Mystic Quest RPG is a fantasy adventure game featuring a rich narrative with multiple branching storylines. Players embark on an epic journey through mystical lands, making choices that shape their destiny and the world around them.
+                        </p>
+                    </div>
+                    <div class="detail-card">
+                        <h3 class="detail-title">Key Features</h3>
+                        <p class="detail-text">
+                            • Dynamic quest system with 50+ unique missions<br>
+                            • Character customization with 100+ items<br>
+                            • Real-time combat system<br>
+                            • Multiplayer co-op for up to 4 players<br>
+                            • Procedural dungeon generation
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">18</div>
+                        <div class="stat-label">Months Development</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Lines of Code</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">25</div>
+                        <div class="stat-label">Unique Environments</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.8/5</div>
+                        <div class="stat-label">Player Rating</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 1: Neon Racing -->
+            <div class="project-content" id="project-1">
+                <div class="project-header">
+                    <h2 class="project-title">Souper Bloody</h2>
+                    <p class="project-subtitle">Unwrap Game Jam 2025 Community Vote Winner</p>
+                    <div class="project-tags">
+                        <span class="tag">Group Project</span>
+                        <span class="tag">Game Jam</span>
+                        <span class="tag">Unity</span>
+                    </div>
+                </div>
+
+                <div class="project-video">
+                    <div class="video-card">
+                         <iframe width="100%" height="100%" 
+                         src="https://www.youtube-nocookie.com/embed/QKykCi_r1Po?si=7f3hJF5GgjaqmfH5&amp;controls=0&amp;start=54" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-card">
+                        <h3 class="detail-title">Game Overview</h3>
+                        <p class="detail-text">
+                            lorem ipsum
+                        </p>
+                    </div>
+                    <div class="detail-card">
+                        <h3 class="detail-title">Project Group</h3>
+                        <p class="detail-text">
+                            • Sander Bex<br>
+                            • Sky De Vilder <br>
+                            • Simon Huysentruyt<br>
+                            • Effy Camacho<br>
+                            • Gabriela Briceño<br>
+                            • Daan Demaecker
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">50</div>
+                        <div class="stat-label">Hours Time Limit</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">#1</div>
+                        <div class="stat-label">"Most Fun To Play"</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">#1</div>
+                        <div class="stat-label">"Most Original"</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">#3</div>
+                        <div class="stat-label">Jury Vote</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Space Colony -->
+            <div class="project-content" id="project-2">
+                <div class="project-header">
+                    <h2 class="project-title">Space Colony</h2>
+                    <p class="project-subtitle">Build and manage your interstellar civilization</p>
+                    <div class="project-tags">
+                        <span class="tag">Strategy</span>
+                        <span class="tag">Simulation</span>
+                        <span class="tag">Unity</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">PC/Mac</span>
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-card">
+                        <h3 class="detail-title">Game Overview</h3>
+                        <p class="detail-text">
+                            Lead humanity's expansion into the cosmos by building and managing space colonies across different planets. Balance resources, research new technologies, and defend against alien threats in this comprehensive space strategy game.
+                        </p>
+                    </div>
+                    <div class="detail-card">
+                        <h3 class="detail-title">Core Mechanics</h3>
+                        <p class="detail-text">
+                            • Complex resource management system<br>
+                            • Tech tree with 200+ research options<br>
+                            • Diplomatic relations with alien species<br>
+                            • Real-time strategy combat<br>
+                            • Procedurally generated galaxy map
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Months Development</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Building Types</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Alien Species</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.6/5</div>
+                        <div class="stat-label">Steam Rating</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Puzzle Kingdom -->
+            <div class="project-content" id="project-3">
+                <div class="project-header">
+                    <h2 class="project-title">Puzzle Kingdom</h2>
+                    <p class="project-subtitle">Match-3 meets kingdom building in this innovative hybrid</p>
+                    <div class="project-tags">
+                        <span class="tag">Puzzle</span>
+                        <span class="tag">Match-3</span>
+                        <span class="tag">Unity</span>
+                        <span class="tag">Mobile</span>
+                        <span class="tag">F2P</span>
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-card">
+                        <h3 class="detail-title">Game Overview</h3>
+                        <p class="detail-text">
+                            Combine the addictive gameplay of match-3 puzzles with kingdom building mechanics. Solve puzzles to gather resources, build structures, and expand your medieval kingdom while defending against invading forces.
+                        </p>
+                    </div>
+                    <div class="detail-card">
+                        <h3 class="detail-title">Innovation Features</h3>
+                        <p class="detail-text">
+                            • Unique puzzle-building hybrid gameplay<br>
+                            • Story-driven campaign with 300+ levels<br>
+                            • Social features and guild system<br>
+                            • Live events and tournaments<br>
+                            • Balanced free-to-play economy
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Months Development</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">300+</div>
+                        <div class="stat-label">Puzzle Levels</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500K+</div>
+                        <div class="stat-label">Active Players</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.7/5</div>
+                        <div class="stat-label">App Store Rating</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Battle Arena VR -->
+            <div class="project-content" id="project-4">
+                <div class="project-header">
+                    <h2 class="project-title">Battle Arena VR</h2>
+                    <p class="project-subtitle">Immersive virtual reality combat experience</p>
+                    <div class="project-tags">
+                        <span class="tag">VR</span>
+                        <span class="tag">Action</span>
+                        <span class="tag">Unreal Engine</span>
+                        <span class="tag">Oculus</span>
+                        <span class="tag">Multiplayer</span>
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-card">
+                        <h3 class="detail-title">Game Overview</h3>
+                        <p class="detail-text">
+                            Step into the arena and fight for glory in this intense VR combat experience. Use realistic sword fighting mechanics, magic spells, and strategic positioning to defeat opponents in various arena environments.
+                        </p>
+                    </div>
+                    <div class="detail-card">
+                        <h3 class="detail-title">VR Innovations</h3>
+                        <p class="detail-text">
+                            • Realistic physics-based combat system<br>
+                            • Hand tracking for spell casting<br>
+                            • Haptic feedback integration<br>
+                            • Cross-platform VR compatibility<br>
+                            • Anti-motion sickness optimization
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">20</div>
+                        <div class="stat-label">Months Development</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Arena Maps</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Weapon Types</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4.9/5</div>
+                        <div class="stat-label">VR Store Rating</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const projectContents = document.querySelectorAll('.project-content');
+        const navDots = document.querySelectorAll('.nav-dot');
+        const videoBg = document.getElementById('videoBg');
+        const bgVideo = document.getElementById('bgVideo');
+
+        let currentIndex = 0;
+
+        // Video backgrounds for each project
+        const videoBackgrounds = [
+            'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
+        ];
+
+        function updateCarousel(index) {
+            currentIndex = index;
+            
+            // Update carousel position
+            const offset = (index - 2) * -320; // Adjust spacing
+            carousel.style.transform = `translateX(${offset}px)`;
+            
+            // Update active states and opacity based on distance from center
+            carouselItems.forEach((item, i) => {
+                const isActive = i === index;
+                item.classList.toggle('active', isActive);
+                
+                // Calculate opacity based on distance from active item
+                const distance = Math.abs(i - index);
+                let opacity;
+                if (distance === 0) {
+                    opacity = 1; // Active item
+                } else if (distance === 1) {
+                    opacity = 0.9; // Adjacent items
+                } else if (distance === 2) {
+                    opacity = 0.7; // Items two steps away
+                } else if (distance === 3) {
+                    opacity = 0.5; // Items two steps away
+                } else {
+                    opacity = 0; // Far items
+                }
+                
+                item.style.opacity = opacity;
+            });
+            
+            navDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            
+            // Update project content
+            projectContents.forEach((content, i) => {
+                content.classList.toggle('active', i === index);
+            });
+            
+            // Update video background
+            if (bgVideo) {
+                bgVideo.src = videoBackgrounds[index];
+                bgVideo.load(); // Reload the video element with new source
+            }
+
+        }
+
+        // Initialize with first project
+        updateCarousel(0);
+
+        // Add click handlers to carousel items
+        carouselItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateCarousel(index);
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                updateCarousel(currentIndex - 1);
+            } else if (e.key === 'ArrowRight' && currentIndex < carouselItems.length - 1) {
+                updateCarousel(currentIndex + 1);
+            }
+        });
+
+
+    </script>
+</body>
+</html>

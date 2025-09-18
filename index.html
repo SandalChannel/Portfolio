@@ -242,6 +242,29 @@
             margin-top: 20px;
             overflow: hidden;
         }
+        
+        .card-icons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .card-icons-entry {
+            display: grid;
+            grid-template-columns: 0fr 1fr;
+            gap: 25px;
+            
+        }
+
+        .card-icons-entry p {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .card-icons-entry img {
+            margin-top: 0px;
+            width: 40px;
+        }
 
         .detail-title {
             font-size: 1.4rem;
@@ -350,6 +373,9 @@
                 
                 <div class="project-details">
                     <div class="detail-card">
+                        <div class="play-button">
+                            <button onclick="window.location.href='https://drive.google.com/file/d/1K5Vz3Z_hYBdHk9QR7HaVclCIFuII6o7X/view';">Download Resumé</button>
+                        </div>
                         <p class="detail-text">
                             Hello There!<br>
                             <br>
@@ -362,14 +388,44 @@
                     </div>
                     <div class="detail-card">
                         <h3 class="detail-title">Software Proficiency</h3>
-                        <p class="detail-text">
-                            • Unity3D<br>
-                            • Blender<br>
-                            • Substance Painter<br>
-                            • C# (.NET/Mono)<br>
-                            • Adobe Photoshop<br>
-                            • Godot
-                        </p>
+                        <div class="card-icons">
+                            <div class="card-icons-entry">
+                                <img src="https://sandalchannel.github.io/Portfolio/Resources/Icons/Unity.png">
+                                <p>
+                                Unity
+                                </p>
+                            </div>
+                            <div class="card-icons-entry">
+                            <img src="https://sandalchannel.github.io/Portfolio/Resources/Icons/Blender.png">
+                            <p>
+                            Blender
+                            </p>
+                            </div>
+                            <div class="card-icons-entry">
+                            <img src="https://sandalchannel.github.io/Portfolio/Resources/Icons/Substance.png">
+                            <p>
+                            Substance Painter
+                            </p>
+                            </div>
+                            <div class="card-icons-entry">
+                            <img src="https://sandalchannel.github.io/Portfolio/Resources/Icons/Csharp.png">
+                            <p>
+                            C# (.NET/Mono)
+                            </p>
+                            </div>
+                            <div class="card-icons-entry">
+                            <img src="https://sandalchannel.github.io/Portfolio/Resources/Icons/Photoshop.png">
+                            <p>
+                            Adobe Photoshop
+                            </p>
+                            </div>
+                            <div class="card-icons-entry">
+                            <img src="https://sandalchannel.github.io/Portfolio/Resources/Icons/Godot.png">
+                            <p>
+                            Godot
+                            </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

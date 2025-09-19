@@ -116,10 +116,6 @@
             transition: all 0.2s ease;
             transform: scale(1.15);
         }
-        .carousel-item.round {
-            border-radius: 999px;
-        }
-
 
 
         .content-section {
@@ -266,6 +262,48 @@
             width: 50px;
         }
 
+        .buttons-with-icon {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2px;
+        }
+
+        .buttons-with-icon-entry {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .buttons-with-icon-entry button {
+            border: 2px solid #47474b;
+            background: #47474b;
+            padding: 12px 20px;
+            border-radius: 15px;
+            color:#ffffff;
+            display: flex;
+            cursor: pointer;
+            box-shadow: 0 0px 5px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            align-items: center;
+        }
+
+        .buttons-with-icon-entry button:hover{
+            background: #515155;
+        }
+
+        .buttons-with-icon-entry button:active {
+            background: #68686b;
+        }
+
+
+
+        .buttons-with-icon-entry img {
+            margin-top: 0px;
+            margin-right: 20px;
+            width: 50px;
+        }
+
+        
+
         .detail-title {
             font-size: 1.4rem;
             margin-bottom: 15px;
@@ -345,7 +383,7 @@
         <div class="carousel-container">
             <div class="carousel-wrapper">
                 <div class="carousel" id="carousel">
-                    <div class="carousel-item active" data-project="0" style="background-image: url('https://sandalchannel.github.io/Portfolio/Resources/ProfilePhoto.jpg')">
+                    <div class="carousel-item active" data-project="0" style="background-image: url('https://sandalchannel.github.io/Portfolio/Resources/ProfilePhoto.jpg'); border-radius: 100%">
                     </div>
                     <div class="carousel-item" data-project="1" style="background-image: url('https://sandalchannel.github.io/Portfolio/Resources/logoSouperBloody.png')">
                     </div>
@@ -373,9 +411,6 @@
                 
                 <div class="project-details">
                     <div class="detail-card">
-                        <div class="play-button">
-                            <button onclick="window.location.href='https://drive.google.com/file/d/1K5Vz3Z_hYBdHk9QR7HaVclCIFuII6o7X/view';">Download Resumé</button>
-                        </div>
                         <p class="detail-text">
                             Hello There!<br>
                             <br>
@@ -385,6 +420,45 @@
                             <br>
                             My favourite parts of making video games are game design, level design, and 3D art. I particularly enjoy these aspects as they let me fully unleash my creative spirit to create something I can be truly proud of. Whether it's Blender, Godot, or Unity, I find myself most at home when making video games, or assets for them.
                         </p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="play-button">
+                            <button onclick="window.location.href='https://drive.google.com/file/d/1K5Vz3Z_hYBdHk9QR7HaVclCIFuII6o7X/view';">Download Resumé</button>
+                        </div>
+                        <h3 class="detail-title">Contact</h3>
+                        <div class="buttons-with-icon">
+                            <div class="buttons-with-icon-entry">
+                                <button onclick="window.location.href='mailto:Sander.Bex@protonmail.com';" style="border-bottom-left-radius: 0%; border-bottom-right-radius: 0%;">
+                                 <img src="https://sandalchannel.github.io/Portfolio/Resources/Icons/Mail.png">
+                                E-mail
+                                </button>
+                            </div>
+                            <div class="buttons-with-icon-entry">
+                                <button onclick="window.location.href='https://www.linkedin.com/in/sanderbex/';" style="border-radius: 0%;">
+                                 <img src="https://sandalchannel.github.io/Portfolio/Resources/Icons/LinkedIn.png">
+                                LinkedIn
+                                </button>
+                            </div>
+                            <div class="buttons-with-icon-entry">
+                                <button onclick="window.location.href='https://sandalchannel.itch.io/';" style="border-radius: 0%;">
+                                 <img src="https://sandalchannel.github.io/Portfolio/Resources/Icons/Itch.png">
+                                itch.io
+                                </button>
+                            </div>
+                            <div class="buttons-with-icon-entry">
+                                <button onclick="window.location.href='https://sketchfab.com/sandalbex';" style="border-radius: 0%;">
+                                 <img src="https://sandalchannel.github.io/Portfolio/Resources/Icons/Sketchfab.png">
+                                Sketchfab
+                                </button>
+                            </div>
+                            <div class="buttons-with-icon-entry">
+                                <button onclick="window.location.href='https://www.youtube.com/@SandalChannel';" style="border-top-left-radius: 0%; border-top-right-radius: 0%;">
+                                 <img src="https://sandalchannel.github.io/Portfolio/Resources/Icons/YouTube.png">
+                                YouTube
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="detail-card">
                         <h3 class="detail-title">Software Proficiency</h3>

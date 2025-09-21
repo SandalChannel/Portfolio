@@ -86,8 +86,8 @@
 
         .carousel-item {
             flex-shrink: 0;
-            width: 300px;
-            height: 300px;
+            width: 280px;
+            height: 280px;
             border-radius: 15px;
             background-size: cover;
             background-position: center;
@@ -198,7 +198,7 @@
 
         .project-details {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 25px;
             margin-top: 25px;
         }
@@ -566,7 +566,7 @@
 
                 <div class="project-video">
                     <div class="video-card">
-                         <video width="100%" height="100%" 
+                         <video controls width="100%" height="100%" 
                          src="https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyExampleVideo.mp4"
                          autoplay="true" muted="true" loop="true">
                         </video>
@@ -694,7 +694,7 @@
 
                 <div class="project-video">
                     <div class="video-card">
-                         <video width="100%" height="100%" 
+                         <video controls width="100%" height="100%" 
                          src="https://sandalchannel.github.io/Portfolio/Resources/LifeBloodTrailer.mp4"
                          autoplay="true" muted="true" loop="true">
                         </video>
@@ -782,7 +782,7 @@
 
                 <div class="project-video">
                     <div class="video-card">
-                         <video width="100%" height="100%" 
+                         <video controls width="100%" height="100%" 
                          src="https://sandalchannel.github.io/Portfolio/Resources/EntangledExampleVideo.mp4"
                          autoplay="true" muted="true" loop="true">
                         </video>
@@ -892,7 +892,7 @@
             currentIndex = index;
             
             // Update carousel position
-            const offset = (index - 2.5) * -320; // Adjust spacing
+            const offset = (index - 2.5) * -300; // Adjust spacing
             carousel.style.transform = `translateX(${offset}px)`;
             
             // Update active states and opacity based on distance from center

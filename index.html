@@ -227,6 +227,7 @@
             width: 100%;
             border-radius: 10px;
             overflow: hidden;
+            border: 1.5px solid #47474b;
         }
 
         .detail-card {
@@ -241,6 +242,7 @@
             border-radius: 10px;
             margin-top: 20px;
             overflow: hidden;
+            border: 1.5px solid #47474b;
         }
         
         .card-icons {
@@ -264,6 +266,7 @@
         .card-icons-entry img {
             margin-top: 0px;
             width: 50px;
+            border: 1.5px solid #47474b;
         }
 
         .buttons-with-icon {
@@ -278,7 +281,7 @@
         }
 
         .buttons-with-icon-entry button {
-            border: 2px solid #47474b;
+            border: none;
             background: #47474b;
             padding: 12px 20px;
             border-radius: 15px;
@@ -351,6 +354,7 @@
         video {
             border-radius: 15px;
             overflow: hidden;
+            border: 1.5px solid #47474b;
         }
 
         @keyframes fadeInUp {
@@ -646,17 +650,78 @@
                     </div>
                 </div>
 
-                <div class="project-images">
-                    <div class="video-card">
-                        <img src="https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyScreenshot00.png">
+                <p>
+                    <br>
+                    <br>
+                </p>
+
+                <div class="project-header">
+                    <h2 class="project-title">Project Details</h2>
+                </div>
+                
+                <div class="project-details">
+                    <div class="detail-card">
+                        <p class="detail-title">Unique Selling Points</p>
+                        <p class="detail-text">
+                            Spreading blood as a mechanic:<br>
+                            Whereas most games use blood purely as a visual, here spreading it directly contributes to your ability to attack enemies.<br>
+                            <br>
+                            Movement restriction:<br>
+                            Restricting movement to only inside blood pools adds an element of platforming to an otherwise purely combat focused game.                    
+                        </p>
                     </div>
-                    <div class="video-card">
-                        <img src="https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyScreenshot01.png">
+                    <div class="detail-card">
+                        <p class="detail-title">Gameplay</p>
+                        <p class="detail-text">
+                            Character:<br>
+                            A demon only capable of moving through blood. Movement through it is fast and precise, and jumps are predictable<br>
+                            <br>
+                            Combat & Moves:<br>
+                            • Jump: Used to traverse blood pools and move around the environment.<br>
+                            • Melee: Strong attack that can only be used up close, requiring the player to move to the target first.<br>
+                            • Ranged: A weak attack that causes the enemy to bleed and spread more blood to move through.<br>
+                            • Taunt: Causes enemies to invesigate, allowing the player to get one to start bleeding, even if none are closeby.<br>
+                        </p>
+                        
                     </div>
-                    <div class="video-card">
+                    <div class="detail-card">
+                        <p class="detail-title">Enemies</p>
+                        <p class="detail-text">
+                            Three normal enemies that wander randomly and run away when hit:<br>
+                            Union (2 HP), Pepper (3HP), Carrot (4HP).<br>
+                            <br>
+                            Cult leader Pepper:<br>
+                            Hides in the outskirts of the map, requiring a series of blood pools to reach.<br>
+                        </p>
                         <img src="https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyScreenshot02.png">
                     </div>
-                </div>
+                    <div class="detail-card">
+                        <p class="detail-title">Win & Lose Conditions</p>
+                        <p class="detail-text">
+                            Lose: Enemies do not attack, so the only way to lose is to run out of blood. This is replenished only when killing an enemy, making it impossible to simply follow one enemy's blood.<br>
+                            <br>
+                            Win: Reach and kill the cult leader Pepper.<br>
+                            <br>
+                        </p>
+                        <img src="https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyScreenshot01.png">
+                    </div>
+                    <div class="detail-card">
+                        <p class="detail-title">Progression</p>
+                        <p class="detail-text">
+                            The main form of progression is creating the path to the cult leader by maiming and killing the veggies. The difficulty comes in balancing keeping the enemies alive to spread more blood, but not letting your own blood meter run out.
+                        </p>
+                        
+                    </div>
+                    
+                    <div class="detail-card">
+                        <p class="detail-title">Style & Atmosphere</p>
+                        <p class="detail-text">
+                            Audio: Harsh but quick sound effects make the hits feel painful. Water sounds used for the blood reinforce the fast movement through it.<br>
+                            <br>
+                            Visuals: Thick dark outlines, combined with the high contrast clear backgrounds always keeps the game state readable. The player is very bright, with the enemies being much darker, which helps differentiate them.
+                        </p>
+                    </div>
+                </div> 
                 
                 <p>
                     <br>
@@ -942,11 +1007,20 @@
                 <div class="project-details">
                     <div class="detail-card">
                         <p class="detail-text">
-                            
-
+                            Based only on a theme of 'Deep Dark', I focussed a lot on atmosphere in this project. I looked into things like volumetric fog and ambience, using limited resources to create a spooky vibe.<br>
+                            <br>
+                            The early stages of the jam were mostly spent experimenting with Godot's systems and trying to make something fun from what I found, which made this quite a unique game jam from an ideation perspective.
                         </p>
+                        <img src="https://sandalchannel.github.io/Portfolio/Resources/VortexHollowDescriptionImage00.png"> 
                     </div>
-
+                    <div class="detail-card">
+                        <p class="detail-text">
+                            In terms of design, I attempted to build a level that evolved as it progressed, with more puzzles and enemies at it goes on. There is even a basic bossfight against a larger enemy at the end.<br>
+                            <br>
+                            My decision to make a shooter was based on the idea of an austronaut exploring a black hole, and the fact that it was a genre I was particularly interested in at the time.
+                        </p>
+                        <img src="https://sandalchannel.github.io/Portfolio/Resources/VortexHollowDescriptionImage01.png"> 
+                    </div>
                 </div> 
             </div>
 

@@ -203,6 +203,12 @@
             margin-top: 25px;
         }
 
+        .project-details-column{
+            display: grid;
+            gap: 25px;
+            height: max-content;
+        }
+
         .project-images {
             display:grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -482,7 +488,7 @@
                             I enjoy brainstorming and iterating on new ideas, the weirder the better!<br>
                             <br>
                             level Design:<br>
-                            Having grown up with Super Mario Maker, and done a significant amount of research into the topic, I consider myself quite adept at what makes a good level tick, and the difficulty progression that makes one fun.<br>
+                            Having grown up with Super Mario Maker, and done a significant amount of research and study into the topic, I consider myself quite adept at what makes a good level tick, and the difficulty progression that makes one fun.<br>
                             <br>
                             3D Art:<br>
                             Whether it's blockouts or PBR texturing, I enjoy the full process of 3D art, particularly messing around in Blender.<br>
@@ -660,7 +666,8 @@
                 </div>
                 
                 <div class="project-details">
-                    <div class="detail-card">
+                    <div class="project-details-column">
+                        <div class="detail-card">
                         <p class="detail-title">Unique Selling Points</p>
                         <p class="detail-text">
                             Spreading blood as a mechanic:<br>
@@ -669,20 +676,6 @@
                             Movement restriction:<br>
                             Restricting movement to only inside blood pools adds an element of platforming to an otherwise purely combat focused game.                    
                         </p>
-                    </div>
-                    <div class="detail-card">
-                        <p class="detail-title">Gameplay</p>
-                        <p class="detail-text">
-                            Character:<br>
-                            A demon only capable of moving through blood. Movement through it is fast and precise, and jumps are predictable<br>
-                            <br>
-                            Combat & Moves:<br>
-                            • Jump: Used to traverse blood pools and move around the environment.<br>
-                            • Melee: Strong attack that can only be used up close, requiring the player to move to the target first.<br>
-                            • Ranged: A weak attack that causes the enemy to bleed and spread more blood to move through.<br>
-                            • Taunt: Causes enemies to invesigate, allowing the player to get one to start bleeding, even if none are closeby.<br>
-                        </p>
-                        
                     </div>
                     <div class="detail-card">
                         <p class="detail-title">Enemies</p>
@@ -700,10 +693,25 @@
                         <p class="detail-text">
                             Lose: Enemies do not attack, so the only way to lose is to run out of blood. This is replenished only when killing an enemy, making it impossible to simply follow one enemy's blood.<br>
                             <br>
-                            Win: Reach and kill the cult leader Pepper.<br>
-                            <br>
+                            Win: Reach and kill the cult leader Pepper.
                         </p>
                         <img src="https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyScreenshot01.png">
+                    </div>
+                    </div>
+                    <div class="project-details-column">
+                        <div class="detail-card">
+                        <p class="detail-title">Gameplay</p>
+                        <p class="detail-text">
+                            Character:<br>
+                            A demon only capable of moving through blood. Movement through it is fast and precise, and jumps are predictable.<br>
+                            <br>
+                            Combat & Moves:<br>
+                            • Jump: Used to traverse blood pools and move around the environment.<br>
+                            • Melee: Strong attack that can only be used up close, requiring the player to move to the target first.<br>
+                            • Ranged: A weak attack that causes the enemy to bleed and spread more blood to move through.<br>
+                            • Taunt: Causes enemies to invesigate, allowing the player to get one to start bleeding, even if none are closeby.<br>
+                        </p>
+                        <img src="https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyScreenshot00.png">
                     </div>
                     <div class="detail-card">
                         <p class="detail-title">Progression</p>
@@ -712,7 +720,6 @@
                         </p>
                         
                     </div>
-                    
                     <div class="detail-card">
                         <p class="detail-title">Style & Atmosphere</p>
                         <p class="detail-text">
@@ -720,6 +727,7 @@
                             <br>
                             Visuals: Thick dark outlines, combined with the high contrast clear backgrounds always keeps the game state readable. The player is very bright, with the enemies being much darker, which helps differentiate them.
                         </p>
+                    </div>
                     </div>
                 </div> 
                 
@@ -743,7 +751,8 @@
                 </div> 
                 
                 <div class="project-details">
-                    <div class="detail-card">
+                    <div class="project-details-column">
+                        <div class="detail-card">
                         <p class="detail-text">
                             Early on, the entire team was contributing to brainstorming, settling on what was still a vague idea at the time. I then focussed on making a mini Game Design Document to pinpoint the gameplay loop we wanted.                      
                         </p>
@@ -751,21 +760,25 @@
                     </div>
                     <div class="detail-card">
                         <p class="detail-text">
+                            As things were progressing, I created a progress report system on our shared board to keep track of the features we could still add within the time limit. This system continued to be used for the rest of the jam.
+                        </p>
+                        <img src="https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyDescriptionImage02.png"> 
+                    </div>  
+                    </div>
+                    
+                    <div class="project-details-column">
+                        <div class="detail-card">
+                        <p class="detail-text">
                             Once we had a good idea of the art style we wanted, I started work on the required shaders we'd need. Using Unity Shadergraph, I worked on a cell shader and outline shader. 
                         </p>
                         <img src="https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyDescriptionImage01.png"> 
                     </div>
                     <div class="detail-card">
                         <p class="detail-text">
-                            As things were progressing, I created a progress report system on our shared board to keep track of the features we could still add within the time limit. This system continued to be used for the rest of the jam.
-                        </p>
-                        <img src="https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyDescriptionImage02.png"> 
-                    </div>  
-                    <div class="detail-card">
-                        <p class="detail-text">
                             Towards the end of the jam, I worked on smaller additions such as SFX, particles, screen shake effects, parts of the HUD and UI, and the shader for blood pools.
                         </p>
                         <img src="https://sandalchannel.github.io/Portfolio/Resources/SouperBloodyDescriptionImage03.png"> 
+                    </div>
                     </div>
                 </div> 
 
@@ -824,8 +837,8 @@
                 </div>
                 
                 <div class="project-details">
-
-                    <div class="detail-card">
+                    <div class="project-details-column">
+                        <div class="detail-card">
                         <p class="detail-title">Unique Selling Points</p>
                         <p class="detail-text">
                             Health as a Resource: Every strike is a risk/reward tradeoff, pushing players to strategize rather than just button-mash.<br>
@@ -834,6 +847,26 @@
                         </p>
                     </div>
                     <div class="detail-card">
+                        <p class="detail-title">Enemies</p>
+                        <p class="detail-text">
+                            Standard Thug: Simple but tuned for satisfying back-and-forth combat. Attack delays signal intent, making dodging and parrying skill-based.<br>
+                            <br>
+                            Weak Thug: Added after feedback showed early areas were too difficult; also used later for pacing and encounter variety.
+                        </p>
+                        <img src="https://sandalchannel.github.io/Portfolio/Resources/LifebloodScreenshot00.png">
+                    </div>
+                    <div class="detail-card">
+                        <p class="detail-title">Win & Lose Conditions</p>
+                        <p class="detail-text">
+                            Lose: Death only comes from enemies, not your own abilities. Prevents unfair “self-kill” scenarios.<br>
+                            <br>
+                            Win: Clear all required fights and reach the level exit.
+                        </p>
+                        
+                    </div>
+                    </div>
+                    <div class="project-details-column">
+                        <div class="detail-card">
                         <p class="detail-title">Gameplay</p>
                         <p class="detail-text">
                             Character: A cyborg with enhanced movement. Player agency is prioritized; even when hit, movement stays snappy to avoid frustration.<br>
@@ -845,14 +878,7 @@
                             • Health Attacks: Trade-offs designed to make players weigh stronger attacks against having more health.
                         </p>
                     </div>
-                    <div class="detail-card">
-                        <p class="detail-title">Enemies</p>
-                        <p class="detail-text">
-                            Standard Thug: Simple but tuned for satisfying back-and-forth combat. Attack delays signal intent, making dodging and parrying skill-based.<br>
-                            <br>
-                            Weak Thug: Added after feedback showed early areas were too difficult; also used later for pacing and encounter variety.
-                        </p>
-                    </div>
+                    
                     <div class="detail-card">
                         <p class="detail-title">Progression</p>
                         <p class="detail-text">
@@ -860,15 +886,9 @@
                             <br>
                             Game Scale: Optional upgrade Boxes boost stats, heal, and encourage replayability.
                         </p>
+                        <img src="https://sandalchannel.github.io/Portfolio/Resources/LifebloodScreenshot02.png">
                     </div>
-                    <div class="detail-card">
-                        <p class="detail-title">Win & Lose Conditions</p>
-                        <p class="detail-text">
-                            Lose: Death only comes from enemies, not your own abilities. Prevents unfair “self-kill” scenarios.<br>
-                            <br>
-                            Win: Clear all required fights and reach the level exit.
-                        </p>
-                    </div>
+                    
                     <div class="detail-card">
                         <p class="detail-title">Style & Atmosphere</p>
                         <p class="detail-text">
@@ -877,6 +897,8 @@
                             Visuals: High-contrast neon palette (blue = player, red/orange = enemies) ensures clarity in fast combat.
                         </p>
                     </div>
+                    </div>
+                    
                 </div> 
 
 
@@ -900,7 +922,8 @@
                 </div> 
                 
                 <div class="project-details">
-                    <div class="detail-card">
+                    <div class="project-details-column">
+                        <div class="detail-card">
                         <p class="detail-text">
                             Starting from nothing more than a vague theme, the first step was brainstorming and ideation. Working out a few ideas, then picking one to continue iterating on. Making prototypes was an important step of the process here to already work on game feel.
                         </p>
@@ -908,21 +931,25 @@
                     </div>
                     <div class="detail-card">
                         <p class="detail-text">
-                            While iterating, I focussed primarily on fixing issues found during playtesting, the moment-to-moment decision making, and the overal game feel during combat.<br><br>
-                        </p>
-                        <img src="https://sandalchannel.github.io/Portfolio/Resources/LifebloodDescriptionImage01.png"> 
-                    </div>
-                    <div class="detail-card">
-                        <p class="detail-text">
-                            When I was happy with the prototype, it was time to work on a Game Design Document. This further locked in things like progression, and level design philosophy.<br><br>
+                            When I was happy with the prototype, it was time to work on a Game Design Document. This further locked in things like progression, and level design philosophy.
                         </p>
                         <img src="https://sandalchannel.github.io/Portfolio/Resources/LifebloodDescriptionImage02.png"> 
                     </div>
+                    </div>
+                    <div class="project-details-column">
+                        <div class="detail-card">
+                        <p class="detail-text">
+                            While iterating, I focussed primarily on fixing issues found during playtesting, the moment-to-moment decision making, and the overal game feel during combat.
+                        </p>
+                        <img src="https://sandalchannel.github.io/Portfolio/Resources/LifebloodDescriptionImage01.png"> 
+                    </div>
+                    
                     <div class="detail-card">
                         <p class="detail-text">
                             For the last part of this project, it was time to use this game design document to make a short vertical slice. This is what the final itch.io version is, and it manages to showcase a lot of the design already, while also being a fun demo to play.
                         </p>
                         <img src="https://sandalchannel.github.io/Portfolio/Resources/LifebloodDescriptionImage03.png"> 
+                    </div>
                     </div>
                 </div> 
             </div>
@@ -931,7 +958,7 @@
             <div class="project-content" id="project-3">
                 <div class="project-header">
                     <h2 class="project-title">Vortex Hollow</h2>
-                    <p class="project-subtitle">A Horror Take On a Boomer Shooter</p>
+                    <p class="project-subtitle">A Spooky Take On a Boomer Shooter</p>
                     <div class="project-tags">
                         <span class="tag">2024</span>
                         <span class="tag">Solo Project</span>
@@ -990,6 +1017,66 @@
                 </p>
 
                 <div class="project-header">
+                    <h2 class="project-title">Project Details</h2>
+                </div>
+                
+                <div class="project-details">
+                    <div class="project-details-column">
+                        <div class="detail-card">
+                        <p class="detail-title">Gameplay</p>
+                        <p class="detail-text">
+                            Character: An astronaut exploring a black hole. Their movement is slow and calculated, adding to the spooky atmosphere<br>
+                            <br>
+                            Controls:<br>
+                            • Shoot: Hitscan shot calculation. If anything that can be interacted with is hit, particles appear to reinforce that.<br>
+                            • Reload: Reload the clip if it's not full. Accompanied by a sound effect.<br>
+                        </p>
+                    </div>
+                    <div class="detail-card">
+                        <p class="detail-title">Progression</p>
+                        <p class="detail-text">
+                            The fully linear level gets more difficult over time with more enemies and more puzzles. These puzzles only consist of shooting buttons to open doors, which adds variety to the shooting gameplay.
+                        </p>
+                    </div>
+                    <div class="detail-card">
+                        <p class="detail-title">Style & Atmosphere</p>
+                        <p class="detail-text">
+                            Audio: Lots of ambience and reverb make the space feel unsettling.<br>
+                            <br>
+                            Visuals: High amounts of fog with little colour and harsh light also help make the environment unsettling.
+                        </p>
+                    </div>
+                    </div>
+                    <div class="project-details-column">
+                        <div class="detail-card">
+                        <p class="detail-title">Enemies</p>
+                        <p class="detail-text">
+                            Apparition: A cloud of particles that drains more HP the closer it gets to the player. Moves slowly towards the player once spotted<br>
+                            <br>
+                            Boss Apparition: Drains more HP, requires more shots, but moves slower.
+                        </p>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <p class="detail-title">Win & Lose Conditions</p>
+                        <p class="detail-text">
+                            Lose: Be in close proximity to enemies for long enough that they drain your health bar entirely.<br>
+                            <br>
+                            Win: Reach and kill the level's boss Apparition.
+                        </p>
+                    </div>
+                    </div>
+                    
+                    
+                </div> 
+
+                <p>
+                    <br>
+                    <br>
+                    <br>
+                </p>
+
+                <div class="project-header">
                     <h2 class="project-title">Design Process</h2>
                 </div>
 
@@ -1017,7 +1104,7 @@
                         <p class="detail-text">
                             In terms of design, I attempted to build a level that evolved as it progressed, with more puzzles and enemies at it goes on. There is even a basic bossfight against a larger enemy at the end.<br>
                             <br>
-                            My decision to make a shooter was based on the idea of an austronaut exploring a black hole, and the fact that it was a genre I was particularly interested in at the time.
+                            My decision to make a shooter was based on the idea of an astronaut exploring a black hole, and the fact that it was a genre I was particularly interested in at the time.
                         </p>
                         <img src="https://sandalchannel.github.io/Portfolio/Resources/VortexHollowScreenshot00.png"> 
                     </div>
@@ -1102,25 +1189,28 @@
                 </div> 
                 
                 <div class="project-details">
-                    <div class="detail-card">
+                    <div class="project-details-column">
+                        <div class="detail-card">
                         <p class="detail-text">
                             As the theme for the game jam was nature related, we chose to do our initial brainstorming outdoors. Here, we pinned down the genre and type of game we wanted, along with the art style.<br>
                         </p>
                         <img src="https://sandalchannel.github.io/Portfolio/Resources/EntangledDescriptionImage00.png"> 
+                        </div>
+                        <div class="detail-card">
+                        <p class="detail-text">
+                            In addition, I worked on some smaller features like the UI, title screen, end screen visuals, and skybox in Unity.
+                        </p>
+                        <img src="https://sandalchannel.github.io/Portfolio/Resources/EntangledDescriptionImage02.png"> 
+                        </div>
                     </div>
-                    <div class="detail-card">
+                    <div class="project-details-column">
+                        <div class="detail-card">
                         <p class="detail-text">
                             Once we had the basic movement controller ready, I started work on building the map in Blender. A number of iterations were made based on playtesting done by the rest of team.
                         </p>
                         <img src="https://sandalchannel.github.io/Portfolio/Resources/EntangledDescriptionImage01.png"> 
                     </div>
-                    <div class="detail-card">
-                        <p class="detail-text">
-                            In addition, I worked on some smaller features like the UI, title screen, end screen visuals, and skybox in Unity.
-                        </p>
-                        <img src="https://sandalchannel.github.io/Portfolio/Resources/EntangledDescriptionImage02.png"> 
                     </div>
-
                 </div> 
             </div>
 
@@ -1193,7 +1283,7 @@
                     </div>
                     <div class="detail-card">
                         <p class="detail-text">
-                            Being a game that's still in development, a lot of things are still in flux. The build that you are seeing is still just a vertical slice that will likely see major changes.
+                            Being a game that's still in development, a lot of things are still in flux. The build that you are seeing is still just a vertical slice that will likely see major changes. <br><br>
                         </p>
                         <img src="https://sandalchannel.github.io/Portfolio/Resources/BobbyBoomerangDescription02.png"> 
                     </div>

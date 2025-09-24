@@ -78,16 +78,16 @@
         .carousel {
             display: flex;
             transition: transform 0.5s ease;
-            gap: 20px;
-            padding: 20px 0;
+            gap: 10px;
+            padding: 10px 0;
             justify-content: center;
             align-items: center;
         }
 
         .carousel-item {
             flex-shrink: 0;
-            width: 280px;
-            height: 280px;
+            width: 250px;
+            height: 250px;
             border-radius: 15px;
             background-size: cover;
             background-position: center;
@@ -1435,7 +1435,7 @@
             currentIndex = index;
             
             // Update carousel position
-            const offset = (index - 2.5) * -300; // Adjust spacing
+            const offset = (index - 2.5) * -260; // Adjust spacing
             carousel.style.transform = `translateX(${offset}px)`;
             
             // Update active states and opacity based on distance from center
